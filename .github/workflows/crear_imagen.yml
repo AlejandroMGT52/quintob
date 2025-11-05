@@ -1,16 +1,12 @@
-# .github/workflows/ci.yml
-
-# Este flujo de trabajo instalará dependencias, ejecutará pruebas (tests) y construirá una imagen Docker.
-
-name: Python CI/CD
+name: Python application
 
 on:
   push:
-    # Se ejecuta solo cuando se sube código a la rama 'quintob'
-    branches:  "quintob" 
-
+    branches: "quintob" 
+ 
 permissions:
   contents: read
+
   # Necesario para push a ghcr.io
   packages: write 
 
