@@ -1,0 +1,32 @@
+# .github/workflows/ci.yml
+name: CI de Python
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      # Baja tu código del repositorio
+
+    - name: Configurar Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+      # Instala la versión de Python
+
+    - name: Instalar dependencias
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+      # Instala las dependencias listadas en requirements.txt
+
+    - name: Ejecutar pruebas (pytest)
+      run: |
+        pytest
+      # Ejecuta el comando de pruebas
